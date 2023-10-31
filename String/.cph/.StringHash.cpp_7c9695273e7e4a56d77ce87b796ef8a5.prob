@@ -1,0 +1,1 @@
+{"name":"Local: StringHash","url":"d:\\CPP\\String\\StringHash.cpp","tests":[{"id":1693648319795,"input":"abcd","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\CPP\\String\\StringHash.cpp","group":"local","local":true}

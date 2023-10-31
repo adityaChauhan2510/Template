@@ -1,49 +1,65 @@
 #include<bits/stdc++.h>
-#define ll long long
 #define fast_io                       \
     ios_base::sync_with_stdio(false); \
     cin.tie(0);                       \
     cout.tie(0);
-#define mod 1000000007
-#define inf 1e9
+
+#define ll                  long long
+#define ld                  long double
+#define mod                 1000000007
+#define inf                 1e9
+#define endl                '\n'
+
 using namespace std;
 
-vector<int> adj[200001];
-int ans[200001];
-int vis[200001];
-int n;
-
-void dfs2(int node, int par=0){
-    for(auto it : adj[node]){
-        if(!vis[it]){
-            for()
-        }
+static bool comp(const pair<int, int>& p1, const pair<int, int>& p2){
+    if(p1.first!=p2.first){
+        return p1.first<p2.first;
+    }else{
+        return p1.second>p2.second;
     }
 }
 
-void dfs(int node=1,int level=0){
-    vis[node] = 1;
-    ans[1] += level;
-    for(auto it : adj[node]){
-        if(!vis[it]){
-            dfs(it, level+1);
-        }
-    }
-}
+
 void solve(){
-    cin>>n;
-    for(int i=0; i<n-1; i++){
-        int u,v; cin>>u>>v;
-        adj[u].push_back(v);
-        adj[v].push_back(u);
+    ll n, c; cin>>n>>c;
+    vector<ll> a(n+1);
+    for(int i=0; i<n; i++) cin>>a[i];
+
+    ll sum = a[0];
+    int j = 0;
+    for(int i=1; i<n; i++){
+        if((sum + a[i])/((i+1)*c) > 0){
+            for(int k=j+1; k<=i; k++){
+                sum += a[k];
+            }
+            j = i;
+        }
     }
 
-    
-    dfs(1, ans, adj, vis);
+    if(j==n-1){
+        cout << "YES" << endl;
+    }else{
+        cout << "NO" << endl;
+    }
+
 
 }
 
 
 int main(){
-    solve();
+    fast_io;
+    cout << fixed;
+    cout << setprecision(10);
+ 
+    int t;
+    t=1;
+    cin>>t;
+ 
+    while(t--)
+    {
+        solve();
+    }
 }
+
+

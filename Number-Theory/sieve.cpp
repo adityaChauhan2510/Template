@@ -2,20 +2,22 @@
 using namespace std;
 
 const int N = 1e7+10;
-vector<bool> isPrime(N, true);
+vector<bool> isPrime(N, 1);
+
+//sieve of eratosthenes
+//TC--->  O(n*logn(logn)) ===== O(n)
 
 void getPrimes(){
-    //sieve Algo to check if number is prime when queries are given.
     isPrime[0] = isPrime[1] = 0;
-    for(int i=2; i<N; i++){
-        if(isPrime[i]==true){
-
-            for(int j=2*i; j<N; j+= i){
-                isPrime[j] = false;
+    for(int i=2; i*i<N; i++){
+        if(isPrime[i]){
+            for(int j=i*i; j<N; j+= i){
+                isPrime[j] = 0;
             }
         }
     }
 }
+
 
 int main(){
 
@@ -25,7 +27,7 @@ int main(){
     int n = 12;
 
     for(int i=0; i<n; i++){
-        cout << isPrime[a[i]] << endl;
+        cout << isPrime[a[i]] << " ";
     }
 
 

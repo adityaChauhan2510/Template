@@ -12,23 +12,23 @@
 using namespace std;
 
 const int N = 1e7+10;
-vector<bool> isPrime(N, true);
-vector<int> lp(N, 0);
-vector<int> hp(N, 0);
+vector<bool> isPrime(N, 1);
+vector<int> lp(N, -1);
+vector<int> hp(N, -1);
 
 void getPrimes(){
-    //sieve Algo to check if number is prime when queries are given.
+    
     isPrime[0] = isPrime[1] = 0;
-    for(int i=2; i<N; i++){
-        if(isPrime[i]==true){
+    for(int i=2; i*i<N; i++){
+        if(isPrime[i]){
 
             lp[i] = hp[i] = i;
 
-            for(int j=2*i; j<N; j+= i){
-                isPrime[j] = false;
+            for(int j=i*i; j<N; j+= i){
+                isPrime[j] = 0;
                 hp[j] = i; 
 
-                if(lp[j] == 0){
+                if(lp[j] == -1){
                     lp[j] = i;
                 }
             }

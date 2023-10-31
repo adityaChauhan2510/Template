@@ -1,0 +1,1 @@
+{"name":"Local: Rabin-Karp","url":"d:\\CPP\\String\\Rabin-Karp.cpp","tests":[{"id":1693651406233,"input":"ababab \nab","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\CPP\\String\\Rabin-Karp.cpp","group":"local","local":true}
